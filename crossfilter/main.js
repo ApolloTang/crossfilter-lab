@@ -1,6 +1,6 @@
 
 // (It's CSV, but GitHub Pages only gzip's JSON at the moment.)
-d3.csv("flights-3m.json", function(error, flights) {
+d3.csv("flights-3m.csv", function(error, flights) {
 
   // Various formatters.
   var formatNumber = d3.format(",d"),
