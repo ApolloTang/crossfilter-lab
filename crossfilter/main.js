@@ -1,7 +1,6 @@
 
 // (It's CSV, but GitHub Pages only gzip's JSON at the moment.)
 d3.csv("flights-3m.csv", function(error, flights) {
-
   // Various formatters.
   var formatNumber = d3.format(",d"),
     formatChange = d3.format("+,d"),
@@ -33,7 +32,6 @@ d3.csv("flights-3m.csv", function(error, flights) {
     distances = distance.group(function(d) { return Math.floor(d / 50) * 50; });
 
   var charts = [
-
     barChart()
     .dimension(hour)
     .group(hours)
@@ -63,7 +61,6 @@ d3.csv("flights-3m.csv", function(error, flights) {
       .domain([new Date(2001, 0, 1), new Date(2001, 3, 1)])
       .rangeRound([0, 10 * 90]))
     .filter([new Date(2001, 1, 1), new Date(2001, 2, 1)])
-
   ];
 
   // Given our array of charts, which we assume are in the same order as the
