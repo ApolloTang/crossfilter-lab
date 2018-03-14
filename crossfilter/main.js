@@ -348,6 +348,7 @@ d3.csv("flights-3m.csv", function(error, flights) {
       return chart;
     };
 
-    return d3.rebind(chart, brush, "on");
+    var ret = d3.rebind(chart, brush, "on");
+    return ret
   }
 });
