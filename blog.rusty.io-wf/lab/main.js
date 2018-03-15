@@ -62,4 +62,23 @@ d3.json("data.json", function(error, data) {
 
   var legs = getCurrentGroupReduceSumOfLeg(livingThings);
   console.log("There are " + legs + " legs in my house.") // 14
+
+  console.log("******* collection group")
+
+  console.log("** count of item in each group")
+  // How many living things of each type are in my house?
+  var getGroupsOfAllType = typeDimension.group()
+  var collectionOfItemCountInGroups = getGroupsOfAllType.reduceCount().top(Infinity);
+  console.table(collectionOfItemCountInGroups)
+  for (let item of collectionOfItemCountInGroups) {
+    console.log(`There are ${item.value} ${item.key} in my house`)
+  }
+
+  console.log("** sum of legs in eachgroup")
+  var collectionOfLegSumInGroups = getGroupsOfAllType.reduceSum( fact=>fact.legs).top(Infinity);
+  console.table(collectionOfLegSumInGroups)
+  for (let item of collectionOfLegSumInGroups) {
+    console.log(`There are total of ${item.value} ${item.key} legs in my house`)
+  }
+
 });
